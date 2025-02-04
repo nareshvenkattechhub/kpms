@@ -37,7 +37,7 @@ const VoiceYourConcerns = () => {
                 responsive community.
               </p>
               <a
-                href="/submit-complaint"
+                href="/complaint"
                 className="btn btn-light btn-lg"
                 style={{
                   background: 'linear-gradient(to right, #43e97b, #38f9d7)', // Gradient for the button

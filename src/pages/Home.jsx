@@ -39,10 +39,12 @@ import VoiceYourConcerns from "../components/Complaint";
 import Footer from "../components/Footer";
 
 
+import GoogleTranslate from "../components/GoogleTranslate";
+
+
 function Homepage(){
 
     return ( < >
-
 
 
 <div className="homepagecolor">

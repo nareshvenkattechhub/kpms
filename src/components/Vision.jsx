@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Vision() {
   return (
@@ -44,6 +45,10 @@ function Vision() {
                 India is a very great country. Our India is a country where everyone needs fresh air, suitable living conditions, food crops, and all kinds of essentials. To ensure that India is economically ahead of all countries in the world, we aim to make the value of the rupee greater than the value of the dollar.
               </p>
 
+
+              <Link to="/about" style={{ textDecoration: "none" }}>
+
+
               <button
                 type="button"
                 className="mt-4 btn btn-lg"
@@ -79,6 +84,12 @@ function Vision() {
               >
                 Join the Vision
               </button>
+
+              </Link>
+
+
+
+              
             </div>
           </div>
         </div>

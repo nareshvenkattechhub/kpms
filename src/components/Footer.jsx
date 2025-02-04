@@ -31,9 +31,9 @@ const Footer = () => {
             <div className="card rounded-3 align-items-center text-black fw-bold p-3" style={{ background: 'linear-gradient(to bottom right, #3498db, #2980b9)' }}>
               <h5 className='fs-3 fw-bold '>About</h5>
               <ul className="list-unstyled">
-                <li><Link to="/#about" className="text-white">Preamble</Link></li>
-                <li><Link to="/#history" className="text-white">Objectives</Link></li>
-                <li><Link to="/#vision" className="text-white">Organization</Link></li>
+                <li><Link to="/about" className="text-white">Preamble</Link></li>
+                <li><Link to="/objectives" className="text-white">Objectives</Link></li>
+                <li><Link to="/organization" className="text-white">Organization</Link></li>
               </ul>
             </div>
           </div>

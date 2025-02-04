@@ -59,7 +59,7 @@ function Organization() {
 
   return (
     <>
-      <div className="container my-5">
+      <div className="container organizationcontainer-5 my-5">
         {/* Title Section */}
         <div
           className="text-center p-3 mb-4 shadow-lg"

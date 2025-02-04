@@ -10,55 +10,327 @@ import { Button } from "react-bootstrap";
 
 import "../App.css";
 
+
+import { Link } from "react-router-dom";
+
+
 const missionData = [
   {
     title: "Food",
-    description:
-      "Food is to provide complete and balanced nutrition to every Indian i.e. men, women, and children.",
-    cardGradient: "linear-gradient(135deg, #ff7e5f, #feb47b)", // Orange-Peach gradient
+    cardGradient: "linear-gradient(135deg, #667eea, #764ba2)" , 
+      description:"Food is to provide complete and balanced nutrition to every Indian i.e. men, women and children..                     ",
     titleGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
     buttonGradient: "linear-gradient(135deg, #43e97b, #38f9d7)", // Green-Turquoise gradient
   },
   {
     title: "Housing",
-    description:
-      "Ensuring every Indian has access to safe, affordable, and comfortable housing.",
-    cardGradient: "linear-gradient(135deg, #667eea, #764ba2)", // Purple-Blue gradient
+    cardGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)",
+    description: 
+      "Housing To provide a decent housing to every family in India.....                                                                                                                                            ",
     titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
     buttonGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
   },
   {
-    title: "Education",
+    title: "Clothing",
+    cardGradient: "linear-gradient(135deg, #ff6a00, #ee0979)" ,
+  
     description:
-      "Providing quality education and skill development for a stronger future.",
-    cardGradient: "linear-gradient(135deg, #4facfe, #00f2fe)", // Blue-Cyan gradient
+      "Clothing To ensure that their clothing is provided according to the regions                                                                    ",
     titleGradient: "linear-gradient(135deg, #ff7e5f, #feb47b)", // Orange-Peach gradient
     buttonGradient: "linear-gradient(135deg, #667eea, #764ba2)", // Purple-Blue gradient
   },
   {
-    title: "Healthcare",
+    title: "Roads",
+     cardGradient: "linear-gradient(135deg, #56ab2f, #a8e063)",
+
+
     description:
-      "Making healthcare accessible and affordable for all citizens of India.",
-    cardGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
+      "Roads Providing roads to every area.....                                                                                       ",
     titleGradient: "linear-gradient(135deg, #43e97b, #38f9d7)", // Green-Turquoise gradient
     buttonGradient: "linear-gradient(135deg, #ff7e5f, #feb47b)", // Orange-Peach gradient
   },
   {
-    title: "Economic Growth",
+    title: "Economy",
+cardGradient: "linear-gradient(135deg, #43cea2, #185a9d)",
+
     description:
-      "Strengthening India's economy through global trade and innovation.",
-    cardGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
+    
+      "Economy To establish a better economy than any other country in the world. Seeing that the rupee is worth.",
     titleGradient: "linear-gradient(135deg, #667eea, #764ba2)", // Purple-Blue gradient
     buttonGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
   },
+
+
+
+
+
+  {
+    title: "Devolopment",
+    cardGradient: "linear-gradient(135deg, #ff4e50, #f9d423)",
+
+
+    description:
+      "Development Setting up factories, cottage industries, to export to world countries....                                                            .",
+    titleGradient: "linear-gradient(135deg, #667eea, #764ba2)", // Purple-Blue gradient
+    buttonGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+  },
+
+
+
+
+
+
+  {
+    title: "Agriculture",
+    cardGradient: "linear-gradient(135deg, #2193b0, #6dd5ed)" ,
+
+    description:
+      "Agriculture Development of agriculture by making land available and providing new support Assembly Con ....",
+    titleGradient: "linear-gradient(135deg, #667eea, #764ba2)", // Purple-Blue gradient
+    buttonGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+  },
+
+
+
+  {
+    title: "Employment",
+    cardGradient: "linear-gradient(135deg, #ff758c, #ff7eb3)",
+
+    description:
+      "Employment Every single employee working in Government, Private and Contract, Outsourcing, ...",
+    titleGradient: "linear-gradient(135deg, #667eea, #764ba2)", // Purple-Blue gradient
+    buttonGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+  },
+
+
+  {
+    title: "Education",
+     cardGradient: "linear-gradient(135deg, #f857a6, #ff5858)",
+
+
+    description:
+      "Education Establishing modern education more than any other country in the world. Paying salar...",
+    titleGradient: "linear-gradient(135deg, #667eea, #764ba2)", // Purple-Blue gradient
+    buttonGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+  },
+
+
+
+
+  {
+    title: "Medical Helath",
+    cardGradient: "linear-gradient(135deg, #ff9966, #ff5e62)",
+
+    description:"Medical Health Making the necessary arrangements to ensure that a greater percentage....",
+    titleGradient: "linear-gradient(135deg, #667eea, #764ba2)", // Purple-Blue gradient
+    buttonGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+  },
+
+
+  
+
+
+
+
+  {
+    title: "Employment",
+    cardGradient: "linear-gradient(135deg, #00c6ff, #0072ff)" ,
+
+    description:"Employment To ensure that every single employee (Employees, Asha, Anganwadi teachers, Ayas) w,.",
+    titleGradient: "linear-gradient(135deg, #667eea, #764ba2)", // Purple-Blue gradient
+    buttonGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+  },
+
+
+
+  {
+    title: "WATER MANAGEMENT  ",
+    cardGradient: "linear-gradient(135deg, #f12711, #f5af19)",
+
+    description:
+      "WATER MANAGEMENT AND SANITATION India has 18 per cent of the world's population but only 4 per cent of ....",
+    titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+
+
+  {
+    title: "INTERNAL SECURITY",
+    cardGradient: "linear-gradient(135deg, #ffc6ff, #0072ff)",
+
+    description:
+      "INTERNAL SECURITY In the aftermath of the Mumbai terror attacks in 2008, Congress revamped the internal  ....",
+    titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+
+
+
+  {
+    title: "Health",
+    cardGradient: "linear-gradient(135deg, #36d1dc, #5b86e5)",
+
+
+    description:
+      "HEALTH KPM Party was the first political party to acknowledge that health of the people and healthcare  ...",
+    titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+
+
+
+
+  {
+    title: "RELIGIOUS & LINGUISTIC ",
+    cardGradient: "linear-gradient(135deg, #ff6a88, #ff99ac)",
+
+    description:
+      "RELIGIOUS AND LINGUISTIC MINORITIES The plurality of religions represents the history of India. History ...",
+    titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+
+  {
+    title: "INFRASTRUCTURE",
+    cardGradient: "linear-gradient(135deg, #ff758c, #dd2476)",
+
+    description:
+    "INFRASTRUCTURE The hardware of an economy are roads, railways, ports, airports and electricity. Capital ex ...",
+    titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+  {
+    title: "Media",
+    cardGradient: "linear-gradient(135deg, #ff512f, #dd2476)",
+
+    description:"MEDIA In the last ten years, significant sections of the media have been robbed of, or surrendered, ....",  
+    titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+
+
+
+
+  {
+    title: "NORTH EASTERN STATES ",
+    cardGradient: "linear-gradient(135deg, #6a11cb, #2575fc)",
+
+
+    description:"NORTH EASTERN STATES The North Eastern states within the Union of India represent the pluralism and  ...", // Purple-Blue gradient
+    titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #dc0592, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+
+
+
+
+
+  {
+    title: "TAXATION AND TAX REFORMS ",
+    cardGradient: "linear-gradient(135deg, #00c3ff, #ffff1c)",
+
+
+    description:"The last ten years of the BJP/ NDA government is a case of taxation gone berserk. The share of taxes ....",
+    titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #ff0923, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+  {
+    title: "WOMEN'S EMPOWERMENT ",
+
+    description:"Historically, women have been discriminated against and put at great disadvantage. Congress pledges ....",
+    titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+
+  {
+    title: "RURAL AND URBAN DEVELOPMENT ",
+    cardGradient: "linear-gradient(135deg, #11998e, #38ef7d)",
+
+
+    description:"RURAL AND URBAN DEVELOPMENT The two realities that India faces are (1) that nearly 60 per cent of the .. ",
+    titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+
+  {
+    title: "Sports ",
+    cardGradient: "linear-gradient(135deg, #2c3e50, #3498db)",
+    description:" SPORTS No government in India's independent history has politicized sports as much as the present BJP ... ",
+    titleGradient: "linear-gradient(135deg, #ff6a00, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+
+  {
+    title: "ART, CULTURE AND HERITAGE",
+    cardGradient: "linear-gradient(135deg, #00c6ff, #0072ff)",
+
+
+    description:" RT, CULTURE AND HERITAGE Art, culture and heritage constitute the identity of a people. The BJP/ NDA ...... ",
+    titleGradient: "linear-gradient(135deg, #eeaa45, #eadco6)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #672091, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+
+  {
+    title: "UNEMPLOYMENT  ",
+    cardGradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)",
+
+
+    description:" UNEMPLOYMENT MEETING THE CRY FOR JOBS The most challenging issue today is widespread unemployment...",
+    titleGradient: "linear-gradient(110deg, #572349, #fadc04)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(135deg, #238936, #fad0c4)", // Pink-Rose gradient
+  },
+
+
+
+  {
+    title: "Education ",
+    cardGradient: "linear-gradient(135deg, #667eea, #764ba2)",
+
+    description:"EDUCATION: Education is a public good and every student has the right to free, quality education  ...  ",
+    titleGradient: "linear-gradient(135deg, #4397bb, #ee0979)", // Orange-Red gradient
+    buttonGradient: "linear-gradient(120deg, #294756, #cad0c4)", // Pink-Rose gradient
+  },
+
+
+
+
+
 ];
+
+
+
+
 
 function MissionSwiper() {
   return (
     <div className="missions-container" style={{ height: "70vh",}}>
       <section
         className="container-fluid bg-dark mt-2 my-5 py-4"
-        style={{ height: "70vh", position: "relative" }}
+        style={{ height: "80vh", position: "relative" }}
       >
         <div
           className="text-center mt-4 fw-bold text-light py-3 px-4 mx-auto"
@@ -80,7 +352,7 @@ function MissionSwiper() {
             1024: { slidesPerView: 3 },
           }}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 2000}}
           modules={[Pagination, Autoplay]}
           className="py-4"
           style={{ height: "90%" }}
@@ -130,6 +402,11 @@ function MissionSwiper() {
                   >
                     {item.description}
                   </p>
+
+
+                  <Link to="/missions" style={{ textDecoration: "none" }}>
+
+                  
                   <button
                     className="btn btn-light mt-auto fs-5 py-2 px-4"
                     style={{
@@ -151,6 +428,10 @@ function MissionSwiper() {
                   >
                     Learn More
                   </button>
+                  </Link>
+
+
+
                 </div>
               </div>
             </SwiperSlide>
@@ -158,32 +439,33 @@ function MissionSwiper() {
         </Swiper>
         
         {/* Centered "View All" Button */}
-        <Button
-          className="btn text-black missionviewall fs-3 btn-light"
-          style={{
-            background: "linear-gradient(135deg, #43e97b, #38f9d7)", // Green-Turquoise gradient
-            color: "white",
-            borderRadius: "25px",
-            marginLeft:"90vh",
-
-            padding: "12px 30px",
-            fontWeight: "bold",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            
-            bottom: "20px", // Adjusted position
-            left: "50%",
-            transform: "translateX(-50%)",
-            transition: "background 0.3s ease, transform 0.3s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.transform = "scale(1.05)";
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.transform = "scale(1)";
-          }}
-        >
-          View All
-        </Button>
+        <Link to="/missions" style={{ textDecoration: "none" }}>
+      <Button
+        className="btn text-black missionviewall fs-3 btn-light"
+        style={{
+          background: "linear-gradient(135deg, #43e97b, #38f9d7)", // Green-Turquoise gradient
+          color: "white",
+          borderRadius: "25px",
+          marginLeft: "90vh",
+          padding: "12px 30px",
+          fontWeight: "bold",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          bottom: "20px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          transition: "background 0.3s ease, transform 0.3s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.transform = "scale(1.05)";
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = "scale(1)";
+        }}
+      >
+        View All
+      </Button>
+    </Link>
+      
       </section>
     </div>
   );

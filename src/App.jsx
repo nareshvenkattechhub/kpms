@@ -47,12 +47,20 @@ import AdminAuth from './pages/Admin';   //authentication
 import AdminDashboard from './pages/Admindashboard';  //admin panel dashboard
 
 
+
+
+import DonationForm from './pages/Donation';
+
+import Nareshcomplaint from './pages/naresh';
+
+import Missions from './pages/Missionspage';
+
 function App() {
   return (
     <Router>
       <Routes>
         {/* Home route */}
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
 
          {/* About route */}
          <Route path="/about" element={<About />} />
@@ -89,11 +97,28 @@ function App() {
 
 
 
-        <Route path="/complaints" element={<ComplaintForm />} />
+        <Route path="/complaint" element={<ComplaintForm />} />
+
+        
 
         <Route path="/admindashboard" element={<AdminDashboard />} />
 
         <Route path="/adminauth" element={<AdminAuth />} />
+
+
+
+        <Route path="/donate" element={<DonationForm />} />
+
+
+        <Route path="/naresh" element={<Nareshcomplaint/>} />
+
+
+
+        <Route path="/missions" element={<Missions/>} /> 
+
+
+
+
 
 
 

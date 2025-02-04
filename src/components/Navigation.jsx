@@ -28,10 +28,12 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls="navigation-menu" />
         <Navbar.Collapse id="navigation-menu" className="justify-content-center">
           <Nav>
-            <Nav.Link href="/home" className="text-light fs-3">Home</Nav.Link>
+            <Nav.Link href="/" className="text-light fs-3">Home</Nav.Link>
             <Nav.Link href="/about" className="text-light fs-3">About</Nav.Link>
             <Nav.Link href="/organization" className="text-light fs-3">Organization</Nav.Link>
             <Nav.Link href="/media" className="text-light fs-3">Media</Nav.Link>
+            <Nav.Link href="/complaints" className="text-light fs-3">complaint</Nav.Link>
+
             
             <Nav.Link href="/adminauth" className="text-light fs-3">admin</Nav.Link>
 

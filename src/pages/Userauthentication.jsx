@@ -9,7 +9,7 @@ const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 const supabase = createClient(projectUrl, apiKey);
 
 export default function AuthForm() {
-  const [isSignUp, setIsSignUp] = useState(true); // State to toggle between sign up and login form
+  const [isSignUp, setIsSignUp] = useState(false); // Login first, then signup
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [response, setResponse] = useState(null);
   const navigate = useNavigate();
@@ -19,12 +19,38 @@ export default function AuthForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handle login form submission
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const { data, error } = await supabase
+        .from("userstore")
+        .select("id, name, email, password")
+        .eq("email", formData.email)
+        .single();
+
+      if (error || !data || data.password !== formData.password) {
+        setResponse("Invalid email or password.");
+        return;
+      }
+
+      localStorage.setItem("token", data.id);
+      localStorage.setItem("email", data.email);
+      localStorage.setItem("username", data.name);
+
+      setResponse("Login successful! Redirecting...");
+      setTimeout(() => navigate("/dashboard"), 2000);
+    } catch (err) {
+      console.error("Error during login:", err);
+      setResponse("Something went wrong!");
+    }
+  };
+
   // Handle sign up form submission
   const handleSignUp = async (e) => {
     e.preventDefault();
-
-    // Check if email already exists
-    let { data: existingUser, error: checkError } = await supabase
+    let { data: existingUser } = await supabase
       .from("userstore")
       .select("email")
       .eq("email", formData.email)
@@ -35,59 +61,34 @@ export default function AuthForm() {
       return;
     }
 
-    // Insert new user if email is unique
     const { error } = await supabase.from("userstore").insert([formData]);
     if (error) {
       setResponse(error.message);
     } else {
-      setResponse("User registered successfully!");
-      setIsSignUp(false); // Switch to login form after successful signup
-    }
-  };
-
-  // Handle login form submission
-  const handleLogin = async (e) => {
-    e.preventDefault();
-
-    try {
-      // Fetch user details from userstore table
-      const { data, error } = await supabase
-        .from("userstore")
-        .select("id, name, email, password")
-        .eq("email", formData.email)
-        .single();
-
-      if (error || !data) {
-        setResponse("Invalid email or password.");
-        return;
-      }
-
-      // Check if passwords match
-      if (data.password !== formData.password) {
-        setResponse("Invalid email or password.");
-        return;
-      }
-
-      // Save user session
-      localStorage.setItem("token", data.id); // Using user ID as session token
-      localStorage.setItem("email", data.email);
-      localStorage.setItem("username", data.name);
-
-      setResponse("Login successful!");
-      navigate("/dashboard"); // Navigate to user dashboard after login
-    } catch (err) {
-      console.error("Error during login:", err);
-      setResponse("Something went wrong!");
+      setResponse("User registered successfully! Switching to login...");
+      setTimeout(() => setIsSignUp(false), 2000);
     }
   };
 
   return (
     <Container fluid className="d-flex justify-content-center align-items-center vh-100" style={{ background: "linear-gradient(135deg, #6EE7B7, #3F5EFB)" }}>
-      <Row className="shadow-lg overflow-hidden w-50" style={{ borderRadius: "20px" }}>
-        <Col xs={12} className="p-5 text-white text-center" style={{ background: "#222", borderRadius: "20px" }}>
+      <Row className="shadow-lg overflow-hidden w-20" style={{ borderRadius: "20px" }}>
+        <Col xs={12} className="p-5 text-white " style={{ background: "#222", borderRadius: "20px" }}>
           <h2 className="fw-bold mb-4">{isSignUp ? "SIGN UP" : "MEMBER LOGIN"}</h2>
 
-          {isSignUp ? (
+          {!isSignUp ? (
+            <Form onSubmit={handleLogin}>
+              <Form.Group className="mb-3">
+                <Form.Label className="fs-5">Email</Form.Label>
+                <Form.Control type="email" name="email" placeholder="Enter Email" onChange={handleChange} required />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label className="fs-5">Password</Form.Label>
+                <Form.Control type="password" name="password" placeholder="Enter Password" onChange={handleChange} required />
+              </Form.Group>
+              <Button variant="primary" className="w-100 fs-5" type="submit">Login</Button>
+            </Form>
+          ) : (
             <Form onSubmit={handleSignUp}>
               <Form.Group className="mb-3">
                 <Form.Label className="fs-5">Username</Form.Label>
@@ -101,28 +102,14 @@ export default function AuthForm() {
                 <Form.Label className="fs-5">Password</Form.Label>
                 <Form.Control type="password" name="password" placeholder="Enter Password" onChange={handleChange} required />
               </Form.Group>
-              <Button variant="primary" className="w-100 fs-5" type="submit">Sign Up</Button>
-            </Form>
-          ) : (
-            <Form onSubmit={handleLogin}>
-              <Form.Group className="mb-3">
-                <Form.Label className="fs-5">Email</Form.Label>
-                <Form.Control type="email" name="email" placeholder="Enter Email" onChange={handleChange} required />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label className="fs-5">Password</Form.Label>
-                <Form.Control type="password" name="password" placeholder="Enter Password" onChange={handleChange} required />
-              </Form.Group>
-              <Button variant="primary" style={{ backgroundColor: "#FF4D6D", border: "none" }} className="w-100 fs-5" type="submit">
-                Login
-              </Button>
+              <Button variant="success" className="w-100 fs-5" type="submit">Sign Up</Button>
             </Form>
           )}
 
-          {response && <p className="mt-3 fw-bold">{response}</p>}
-          
-          <p className="mt-3">
-            {isSignUp ? "Already have an account?" : "Don't have an account?"}{" "}
+          {response && <p className="mt-3 fw-bold text-center">{response}</p>}
+
+          <p className="mt-3 text-center">
+            {isSignUp ? "Already have an account?" : "Don't have an account?"} {" "}
             <a href="#" onClick={() => setIsSignUp(!isSignUp)}>
               {isSignUp ? "Login here" : "Sign up here"}
             </a>
